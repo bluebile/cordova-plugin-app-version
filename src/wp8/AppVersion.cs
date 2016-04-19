@@ -20,7 +20,8 @@ namespace Cordova.Extension.Commands
 			}
 			else
 			{
-				version = Package.Current.Id.Version.ToString();
+				var versionObj = Package.Current.Id.Version;
+				version = String.Format("{0}.{1}.{2}", versionObj.Major, versionObj.Minor, versionObj.Build);
 			}
 
 			this.DispatchCommandResult(new PluginResult(PluginResult.Status.OK, version));
